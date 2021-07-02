@@ -6,17 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="https://xxxak.github.io">
-  <title>Tag: 闭包 | xxxak&#39;blog</title>
+  <title>let,var在for循环中生成函数以及函数调用的区别 | xxxak&#39;blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端 JavaScript 程序员">
-<meta property="og:type" content="website">
-<meta property="og:title" content="xxxak&#39;blog">
-<meta property="og:url" content="https://xxxak.github.io/tags/%E9%97%AD%E5%8C%85/index.html">
+  <meta name="description" content="let,var在for循环中生成函数以及函数调用的区别   在阅读一篇原型链原理的文章时的时候，提到了for循环生成函数，调用生成的函数，因为i是全局变量所以在调用函数的时候回循着原型链去查找全局的i，最后所有的函数输出的i结果都是一样的。 12345678910111213var a&#x3D;[];       for(var i&#x3D;0;i&lt;6;i++)&amp;#123;           a[i]&#x3D;f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="let,var在for循环中生成函数以及函数调用的区别">
+<meta property="og:url" content="https://xxxak.github.io/2021/07/02/let-var%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/index.html">
 <meta property="og:site_name" content="xxxak&#39;blog">
-<meta property="og:description" content="前端 JavaScript 程序员">
+<meta property="og:description" content="let,var在for循环中生成函数以及函数调用的区别   在阅读一篇原型链原理的文章时的时候，提到了for循环生成函数，调用生成的函数，因为i是全局变量所以在调用函数的时候回循着原型链去查找全局的i，最后所有的函数输出的i结果都是一样的。 12345678910111213var a&#x3D;[];       for(var i&#x3D;0;i&lt;6;i++)&amp;#123;           a[i]&#x3D;f">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-07-02T13:34:23.000Z">
+<meta property="article:modified_time" content="2021-07-02T13:35:16.503Z">
 <meta property="article:author" content="小星星阿卡">
-<meta property="article:tag" content="javascript 程序员 前端 萌新">
+<meta property="article:tag" content="es6">
+<meta property="article:tag" content="for循环">
+<meta property="article:tag" content="闭包">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="xxxak&#39;blog" type="application/atom+xml">
@@ -153,36 +157,53 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-let-var在for循环中生成函数以及函数调用的区别" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/07/02/let-var%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
-  	<time datetime="2021-07-02T13:34:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-02</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/07/02/let-var%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/">let,var在for循环中生成函数以及函数调用的区别</a>
+    <h1 class="article-title" itemprop="name">
+      let,var在for循环中生成函数以及函数调用的区别
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2021/07/02/let-var%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/" class="archive-article-date">
+  	<time datetime="2021-07-02T13:34:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-02</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="let-var在for循环中生成函数以及函数调用的区别"><a href="#let-var在for循环中生成函数以及函数调用的区别" class="headerlink" title="let,var在for循环中生成函数以及函数调用的区别"></a>let,var在for循环中生成函数以及函数调用的区别</h4><p>   在阅读一篇<a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhiyishou/p/4844928.html">原型链原理</a>的文章时的时候，提到了for循环生成函数，调用生成的函数，因为i是全局变量所以在调用函数的时候回循着原型链去查找全局的i，最后所有的函数输出的i结果都是一样的。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[];</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">           a[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.log(i);</span><br><span class="line">           &#125;;</span><br><span class="line">       &#125;</span><br><span class="line">       a[<span class="number">0</span>]();<span class="comment">//6 </span></span><br><span class="line">       a[<span class="number">1</span>]();<span class="comment">//6</span></span><br><span class="line">       a[<span class="number">2</span>]();<span class="comment">//6    </span></span><br><span class="line">       a[<span class="number">3</span>]();<span class="comment">//6 </span></span><br><span class="line">       a[<span class="number">4</span>]();<span class="comment">//6</span></span><br><span class="line">       a[<span class="number">5</span>]();<span class="comment">//6    </span></span><br><span class="line">     </span><br></pre></td></tr></table></figure>
+
+<p>​    <span id="more"></span> </p>
+<p> 我马上就想到了最简单的方法，就是把var替换成let，就能使得调用的函数能有不同的输出.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[];</span><br><span class="line">       <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;<span class="number">6</span>;i++)&#123;</span><br><span class="line">           a[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">               <span class="built_in">console</span>.log(i);</span><br><span class="line">           &#125;;</span><br><span class="line">       &#125;</span><br><span class="line">       a[<span class="number">0</span>]();<span class="comment">//0 </span></span><br><span class="line">       a[<span class="number">1</span>]();<span class="comment">//1</span></span><br><span class="line">       a[<span class="number">2</span>]();<span class="comment">//2    </span></span><br><span class="line">       a[<span class="number">3</span>]();<span class="comment">//3</span></span><br><span class="line">       a[<span class="number">4</span>]();<span class="comment">//4</span></span><br><span class="line">       a[<span class="number">5</span>]();<span class="comment">//5    </span></span><br><span class="line">      </span><br></pre></td></tr></table></figure>
+
+<p>   对比这两段代码我们实现要知道第一段代码中var声明的i是全局变量 ，所以在后面的函数调用的时候为了查找函数内部没有定义的i，我们会向外循着作用链查找找到全局的作用域i且这些函数.</p>
+<p>  而let声明的是有块级作用域，所以循环生成的有对应个数的不同的作用域，所以调用函数的时候他们循着作用域查找会能找到不同的i。</p>
+<p>字面意思就是这样，我一开始也不能理解，去查找了大部分都没有具体的讲清楚。最后终于是找到了o(<em>￣▽￣</em>)ブ有一位情况和我差不多的同学。</p>
+<p>下面是举例代码，主要还是对于基础for循环的是怎么运行的理解，还有就是闭包的理解。</p>
+<p>**前者(var i)**具体执行过程如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[];</span><br><span class="line"><span class="keyword">var</span> i=<span class="number">0</span>;<span class="comment">//由于var来声明变量i，所以for循环代码块不具备块级作用域，因此i认为是全局变量，直接放在全局变量中。</span></span><br><span class="line">a[<span class="number">0</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);<span class="comment">//这里之所以i为i而不是0；是因为我们只是定义了该函数，未被调用，所以没有进入该函数执行环境，i当然不会沿着作用域链向上搜索找到i的值。</span></span><br><span class="line">&#125;<span class="comment">// 由于不具备块级作用域，所以该函数定义就是全局作用域。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i=<span class="number">1</span>;<span class="comment">//第二次循环，这时var i=1;覆盖了前面的var i=0；即现在i为1;</span></span><br><span class="line">a[<span class="number">1</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);<span class="comment">//解释同a[0]函数。</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i=<span class="number">2</span>;<span class="comment">// 第三次循环，这时 i=2，在全局作用域中，所以覆盖了前面的i=1;</span></span><br><span class="line">a[<span class="number">2</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">......第四次循环 此时i=<span class="number">3</span>  这个以及下面的i不断的覆盖前面的i，因为都在全局作用域中</span><br><span class="line">......第五次循环 此时i=<span class="number">4</span></span><br><span class="line">......第六次循环 此时i=<span class="number">5</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i=<span class="number">5</span>;</span><br><span class="line">a[<span class="number">5</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(i);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> i=<span class="number">6</span>;<span class="comment">// 这时i为6，因为不满足循环条件，所以停止循环。</span></span><br><span class="line"></span><br><span class="line"> a[<span class="number">3</span>]();<span class="comment">//这时调用a[3]函数，所以这时随即进入a[3]函数的执行环境，即a[3]=function()&#123;console.log(i)&#125;;执行函数中的代码 console.log(i); 因为在函数执行环境中不存在变量i，所以此时会沿着作用域链向上寻找（可参考我的博文《深入理解作用域和作用域链》），即进入了全局作用域中寻找变量i,而全局作用域中i=6覆盖了前面所有的i值，所以说这时i为6，那么a[3]的值就是6了。</span></span><br></pre></td></tr></table></figure>
+
+<p>　　<strong>说明</strong>：对于例如a[1]=function(){console.log(i)}；而不是a[1]=function{console.log(1)}，可以在控制台中输出a[1]函数，即可得到验证。</p>
+<p><strong>后者（let i）</strong>具体执行过程如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a=[];<span class="comment">//创建一个数组a;</span></span><br><span class="line"></span><br><span class="line">&#123; <span class="comment">//进入第一次循环</span></span><br><span class="line">  <span class="keyword">let</span> i=<span class="number">0</span>; <span class="comment">//注意：因为使用let使得for循环为块级作用域，此次let i=0在这个块级作用域中，而不是在全局环境中。</span></span><br><span class="line">  a[<span class="number">0</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">   &#125;; <span class="comment">//注意：由于循环时，let声明i,所以整个块是块级作用域，那么a[0]这个函数就成了一个闭包。</span></span><br><span class="line">&#125;<span class="comment">// **声明：** **我这里用｛｝表达并不符合语法，只是希望通过它来说明let存在时，这个for循环块是块级作用域，而不是全局作用域。**</span></span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">讲道理，**上面这是一个块级作用域，就像函数作用域一样，函数执行完毕，其中的变量会被销毁，但是因为这个代码块中存在一个闭包，闭包的作用域链中包含着（或着说是引用着）块级作用域，所以在闭包被调用之前，这个块级作用域内部的变量不会被销毁。（更多闭包知识，可以看我的博文《[JavaScript之闭包](http:<span class="comment">//www.cnblogs.com/zhuzhenwei918/p/6042460.html)》）**</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#123; <span class="comment">//进入第二次循环</span></span><br><span class="line">   <span class="keyword">let</span> i=<span class="number">1</span>; <span class="comment">//注意：因为let i=1; 和 **上面的let i=0;出在不同的作用域中，所以两者不会相互影响。**</span></span><br><span class="line">   a[<span class="number">1</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(i);</span><br><span class="line">   &#125;; <span class="comment">//同样，这个a[i]也是一个闭包</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">......进入第三次循环，此时其中<span class="keyword">let</span> i=<span class="number">2</span>;</span><br><span class="line">......进入第四次循环，此时其中<span class="keyword">let</span> i=<span class="number">3</span>;</span><br><span class="line">......进入第五次循环，此时其中<span class="keyword">let</span> i=<span class="number">4</span>;</span><br><span class="line">......进入第六次循环，此时其中<span class="keyword">let</span> i=<span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">&#123;<span class="comment">//进入第六次循环</span></span><br><span class="line">  <span class="keyword">let</span> i=<span class="number">5</span>;</span><br><span class="line">  a[i]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(i);</span><br><span class="line">  &#125;;<span class="comment">//同样，这个a[i]也是一个闭包</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">let</span> i=<span class="number">6</span>;<span class="comment">//不符合条件，不再向下执行。于是这个代码块中不存在闭包，let i=6;在这次循环结束之后难逃厄运，**随即被销毁。**</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">a[<span class="number">3</span>]();<span class="comment">//调用a[3]()函数，这时执行环境随即进入下面这个代码块中的执行环境：funcion()&#123;console.log(i)&#125;;</span></span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">let</span> i=<span class="number">3</span>;</span><br><span class="line">   a[<span class="number">3</span>]=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">     <span class="built_in">console</span>.log(i);</span><br><span class="line">   &#125;; <span class="comment">//同样，这个a[i]也是一个闭包</span></span><br><span class="line">&#125;</span><br><span class="line"> <span class="comment">// **a[3]函数（闭包）这个执行环境中，它会首先寻找该执行环境中是否存在 i，没有找到，就沿着作用域链继续向上到了其所在的代码块执行环境，找到了i=3,于是输出了3，即a[3]();的结果为3。这时，闭包被调用，所以整个代码块中的变量i和函数a[3]()被销毁。**</span></span><br><span class="line">  </span><br></pre></td></tr></table></figure>
+
+<p>   关键还是先理解闭包和和作用域，再来看上面的例子就只是把for循环具体如何运行了解一遍而已。只能说如果自己能把for怎么运行具体分析出来还是很容易理解的，基础还是最重要的`(<em>&gt;﹏&lt;</em>)′。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -202,19 +223,106 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=https://xxxak.github.io/2021/07/02/let-var%E5%9C%A8for%E5%BE%AA%E7%8E%AF%E4%B8%AD%E7%94%9F%E6%88%90%E5%87%BD%E6%95%B0%E4%BB%A5%E5%8F%8A%E5%87%BD%E6%95%B0%E8%B0%83%E7%94%A8%E7%9A%84%E5%8C%BA%E5%88%AB/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2021/06/21/%E5%8F%98%E9%87%8F%E4%BA%A4%E6%8D%A2/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">变量交换</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -237,9 +345,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
