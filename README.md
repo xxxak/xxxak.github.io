@@ -1,4 +1,4 @@
-# github.xxxak.io
+# https://xxxak.github.io
 
 my blog
 
